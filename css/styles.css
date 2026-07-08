@@ -199,15 +199,23 @@ button {
   z-index: 1000;
   height: var(--header-height);
   transition: background-color var(--duration-normal) var(--ease-out),
-              backdrop-filter var(--duration-normal) var(--ease-out),
               box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .site-header--scrolled {
   background-color: rgba(242, 238, 230, 0.92);
+  box-shadow: 0 1px 0 rgba(61, 53, 48, 0.06);
+}
+
+/* Blur on pseudo-element so fixed .site-nav stays viewport-relative */
+.site-header--scrolled::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(61, 53, 48, 0.06);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .site-header--solid {
@@ -255,6 +263,8 @@ button {
 }
 
 .header-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -323,6 +333,7 @@ button {
 .site-nav {
   position: fixed;
   inset: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,6 +352,7 @@ button {
 @media (min-width: 1024px) {
   .site-nav {
     position: static;
+    z-index: auto;
     opacity: 1;
     visibility: visible;
     background: none;
@@ -1155,6 +1167,17 @@ button {
   flex-wrap: wrap;
   gap: var(--space-sm) var(--space-lg);
   margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 1023px) {
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    justify-items: start;
+    row-gap: var(--space-sm);
+    column-gap: var(--space-lg);
+  }
 }
 
 .footer-links a {
