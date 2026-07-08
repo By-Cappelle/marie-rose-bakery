@@ -147,4 +147,41 @@
     });
   });
 
+  /* --- Gallery height sync (reference: photo 2) --- */
+  const galleryGrid = document.querySelector('.gallery-grid');
+
+  function syncGalleryHeights() {
+    if (!galleryGrid || galleryGrid.children.length < 3) return;
+
+    const referenceItem = galleryGrid.children[1];
+    const photoOne = galleryGrid.children[0];
+    const photoThree = galleryGrid.children[2];
+
+    const refHeight = referenceItem.offsetHeight;
+    if (!refHeight) return;
+
+    [photoOne, photoThree].forEach(function (item) {
+      if (!item) return;
+      item.style.height = refHeight + 'px';
+      item.style.aspectRatio = 'auto';
+    });
+  }
+
+  let galleryResizeTimer;
+  function scheduleGallerySync() {
+    window.clearTimeout(galleryResizeTimer);
+    galleryResizeTimer = window.setTimeout(syncGalleryHeights, 50);
+  }
+
+  if (galleryGrid) {
+    window.addEventListener('load', syncGalleryHeights);
+    window.addEventListener('resize', scheduleGallerySync);
+    galleryGrid.querySelectorAll('img').forEach(function (img) {
+      if (!img.complete) {
+        img.addEventListener('load', syncGalleryHeights);
+      }
+    });
+    syncGalleryHeights();
+  }
+
 })();
