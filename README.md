@@ -1,10 +1,10 @@
 # Marie-Rose Bakery Café
 
-Premium static website for [Marie-Rose Bakery Café](https://marie-roseknokke.be) in Knokke-Heist — developed as a flagship case study by [Cappelle](https://bycappelle.be).
+Premium static website for [Marie-Rose Bakery Café](https://marie-roseknokke.be) in Knokke-Heist, developed by [Cappelle](https://bycappelle.be).
 
 ## About
 
-Marie-Rose Bakery Café is an urban bakery café known for breakfast, brunch, and lunch with international allure. This website presents the brand through an editorial, hospitality-focused digital experience: strong photography, refined typography, and a calm premium aesthetic.
+Marie-Rose Bakery Café is an urban bakery café known for breakfast, brunch and lunch with international allure. This website presents the brand through an editorial, hospitality-focused digital experience: strong photography, refined typography and a calm premium aesthetic.
 
 ## Tech stack
 
@@ -43,4 +43,4 @@ Open [http://localhost:8765](http://localhost:8765).
 
 ## Credits
 
-Design & development by **Cappelle** — premium web design studio.
+Design & development by **Cappelle**
