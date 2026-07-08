@@ -1,5 +1,5 @@
 /**
- * Marie-Rose Bakery Café — Main JavaScript
+ * Marie-Rose Bakery Café - Main JavaScript
  * Cappelle Design Studio
  */
 
